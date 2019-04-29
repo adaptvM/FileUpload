@@ -5,9 +5,9 @@ const upload = require('../fileUpload')
 const multipartMiddleware = new multipart();
 
 router.post('/upload', multipartMiddleware, (req, res) => {
-    let folder = Object.values(req.files)[0] //array of files
-
-    let multipleFiles = Array.isArray(folder)
+    let folder = Object.values(req.files)[0] //file{} or files[{}]
+    console.log(folder)
+    let multipleFiles = Array.isArray(folder) //array or not
 
     switch(multipleFiles) {
         case false: 
